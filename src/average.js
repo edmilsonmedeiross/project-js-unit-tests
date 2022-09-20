@@ -11,6 +11,46 @@
     - average([1, '2']) // Retorno: undefined ;
 */
 
-const average = () => {};
+const isNum = (num) => {
+  for (const i of num) {
+    if (typeof i !== 'number') {
+      throw new Error(undefined);
+    }
+  }
+
+  /* for (let index = 0; index < num.length; index += 1) {
+    if (typeof index === 'undefined' || typeof index === null) {
+    return undefined;
+    }
+  } */
+};
+
+function isEmpty(num2) {
+    if (num2.length === 0) {
+      /* return undefined; */
+      throw new Error(undefined); 
+    }  
+}
+
+const average = (array) => {
+  /* console.log(typeof []) */
+  try { 
+    isEmpty(array);
+    isNum(array);
+
+  let sum = 0;
+  
+  for (let index = 0; index < array.length; index += 1) {
+    sum += array[index]; 
+  }
+
+  const media = Math.round(sum / array.length);
+  return media;
+    } catch (error) {
+    return undefined;
+  } 
+};
+
+console.log(average([]));
 
 module.exports = average;

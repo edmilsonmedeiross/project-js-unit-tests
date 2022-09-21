@@ -42,14 +42,34 @@ Retorno:
 */
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
-  it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    fail('Teste vazio!');
+  /* it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
+    fail('Teste vazio!'); */
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    it('no parameter function return undefined', () => {
+      expect(getCharacter()).toBeUndefined;
+    })
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    it('when parameter is arya return correct object', () => {
+      expect(getCharacter('Arya')).toEqual({"class": "Rogue", "name": "Arya Stark", "phrases": ["Not today", "A girl has no name."]})
+    })
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    it('when parameter is Brienne return correct object', () => {
+      expect(getCharacter('Brienne')).toEqual({"class": "Knight", "name": "Brienne Tarth", "phrases": ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.']})
+    })
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+    it('when parameter is Melissandre return correct object', () => {
+      expect(getCharacter('Melissandre')).toEqual({"class": "Necromancer", "name": "Melissandre", "phrases": ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.']})
+    })
     // Teste se o parâmetro não é Case Sensitive, ou seja, independente de conter letras maiúsculas ou minúsculas retorna o mesmo objeto relativo a ele.
+    it('when parameter is melissandre return correct object', () => {
+      expect(getCharacter('melissandre')).toEqual({"class": "Necromancer", "name": "Melissandre", "phrases": ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.']})
+    })
+
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    it('for incorrect parameter this function return undefined', () => {
+      expect(getCharacter('nome')).toBeUndefined;
+    })
+
   });
-});
+

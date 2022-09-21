@@ -17,7 +17,7 @@
 
   Comportamento:
   calculator(1, 2); // { sum: 3, mult: 2, div: 0, sub: -1 }
-
+                       { sum: 3, mult: 2, div: 0, sub: -1 }
   Depois de ter implementado a função calculator, desenvolva uma função que converta objetos em arrays, de chaves, valores ou ambos.
   A sua função deve receber dois parâmetros:
 
@@ -34,8 +34,35 @@
   arrayGenerator('entries', { sum: 3, mult: 2, div: 0, sub: -1 }) // [ [ 'sum', 3 ], [ 'mult', 2 ], [ 'div', 0 ], [ 'sub', -1 ] ]
 */
 
-const calculator = (number1, number2) => {};
+const calculator = (number1, number2) => {
+  const obj = {
+   sum: number1 + number2,
+   mult: number1 * number2,
+   div: Math.floor(number1 / number2),
+   sub: number1 - number2 };
 
-const arrayGenerator = (type, object) => {};
+  return obj;
+};
+
+/* console.log(calculator(1, 2)); */
+
+const arrayGenerator = (type, object) => {
+  let resultado;
+  const keys = Object.keys(object);
+  const values = Object.values(object);
+  const entries = Object.entries(object);
+  /* console.log(keys); */
+
+  if (type === 'keys') {
+    resultado = keys;
+  } else if (type === 'values') {
+    resultado = values;
+  } else {
+    resultado = entries;
+  }
+  return resultado;
+};
+
+/* arrayGenerator('keys', { sum: 3, mult: 2, div: 0, sub: -1 }); */
 
 module.exports = { calculator, arrayGenerator };
